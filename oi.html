@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Mercado Peças</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .quiz-container { background: #fff; padding: 30px; max-width: 500px; margin: 40px auto; border-radius: 8px; box-shadow: 0 2px 8px #ccc; }
+        .pergunta { margin-bottom: 20px; }
+        .oculto { display: none; }
+        button { padding: 8px 20px; border: none; background: #007bff; color: #fff; border-radius: 4px; cursor: pointer; }
+        .pontuacao { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <form id="quizForm">
+            <div class="pergunta" id="pergunta1">
+                <label>Qual é a nossa missão?</label><br>
+                <input type="text" id="resposta1" required>
+                <button type="button" onclick="verificarMissao()">Responder</button>
+            </div>
+            <div class="pergunta oculto" id="pergunta2">
+                <label>Visão 1:</label><br>
+                <input type="text" id="resposta2" required>
+                <button type="button" onclick="verificarVisao1()">Responder</button>
+            </div>
+            <div class="pergunta oculto" id="pergunta3">
+                <label>Visão 2:</label><br>
+                <input type="text" id="resposta3" required>
+                <button type="button" onclick="verificarVisao2()">Responder</button>
+            </div>
+            <div class="pergunta oculto" id="pergunta4">
+                <label>Visão 3:</label><br>
+                <input type="text" id="resposta4" required>
+                <button type="button" onclick="verificarVisao3()">Responder</button>
+            </div>
+            <div class="pergunta oculto" id="pergunta5">
+                <label>Visão 4:</label><br>
+                <input type="text" id="resposta5" required>
+                <button type="button" onclick="verificarVisao4()">Responder</button>
+            </div>
+            <div class="pergunta oculto" id="pergunta6">
+                <label>Visão 5:</label><br>
+                <input type="text" id="resposta6" required>
+                <button type="button" onclick="verificarVisao5()">Responder</button>
+            </div>
+            <div class="pergunta oculto" id="pergunta7">
+                <label>Cite 7 valores da Mercado Peças (digite todos separados por ponto e vírgula):</label><br>
+                <input type="text" id="resposta7" required>
+                <button type="button" onclick="verificarValores()">Responder</button>
+            </div>
+            <div class="pontuacao oculto" id="pontuacaoFinal"></div>
+        </form>
+    </div>
+    <script>
+        let pontuacao = 100;
+
+        function verificarMissao() {
+            const resposta = document.getElementById('resposta1').value.trim().toLowerCase();
+            const correta = "nossa missão é fazer as maquinas trabalharem por mais tempo e os humanos por menos tempo";
+            if (resposta === correta) {
+                document.getElementById('pergunta1').classList.add('oculto');
+                document.getElementById('pergunta2').classList.remove('oculto');
+            } else {
+                pontuacao -= 10;
+                alert("Resposta incorreta! Tente novamente.");
+            }
+        }
+
+        function verificarVisao1() {
+            const resposta = document.getElementById('resposta2').value.trim().toLowerCase();
+            const correta = "consolidar a liderança nacional, baseando-se em nossos valores para alcançar 4 objetivos";
+            if (resposta === correta) {
+                document.getElementById('pergunta2').classList.add('oculto');
+                document.getElementById('pergunta3').classList.remove('oculto');
+            } else {
+                pontuacao -= 10;
+                alert("Resposta incorreta! Tente novamente.");
+            }
+        }
+
+        function verificarVisao2() {
+            const resposta = document.getElementById('resposta3').value.trim().toLowerCase();
+            const correta = "ser a maior empresa focada em peças da linha jardim e floresta brasileira no e-commerce";
+            if (resposta === correta) {
+                document.getElementById('pergunta3').classList.add('oculto');
+                document.getElementById('pergunta4').classList.remove('oculto');
+            } else {
+                pontuacao -= 10;
+                alert("Resposta incorreta! Tente novamente.");
+            }
+        }
+
+        function verificarVisao3() {
+            const resposta = document.getElementById('resposta4').value.trim().toLowerCase();
+            const correta = "se tornar um dos melhores lugares para se trabalhar conquistando o great place to work";
+            if (resposta === correta) {
+                document.getElementById('pergunta4').classList.add('oculto');
+                document.getElementById('pergunta5').classList.remove('oculto');
+            } else {
+                pontuacao -= 10;
+                alert("Resposta incorreta! Tente novamente.");
+            }
+        }
+
+        function verificarVisao4() {
+            const resposta = document.getElementById('resposta5').value.trim().toLowerCase();
+            const correta = "financiar novos projetos com o intiuto de diversificar os ramos de atuação do grupo";
+            if (resposta === correta) {
+                document.getElementById('pergunta5').classList.add('oculto');
+                document.getElementById('pergunta6').classList.remove('oculto');
+            } else {
+                pontuacao -= 10;
+                alert("Resposta incorreta! Tente novamente.");
+            }
+        }
+
+        function verificarVisao5() {
+            const resposta = document.getElementById('resposta6').value.trim().toLowerCase();
+            const correta = "se tornar um marketplace sustentável";
+            if (resposta === correta) {
+                document.getElementById('pergunta6').classList.add('oculto');
+                document.getElementById('pergunta7').classList.remove('oculto');
+            } else {
+                pontuacao -= 10;
+                alert("Resposta incorreta! Tente novamente.");
+            }
+        }
+
+        function verificarValores() {
+            const resposta = document.getElementById('resposta7').value.trim().toLowerCase();
+            const valoresCorretos = [
+                "comprometimento",
+                "legitimidade",
+                "trabalho em equipe",
+                "compromisso com o resultado do cliente",
+                "criatividade",
+                "melhoria continua",
+                "energia"
+            ];
+            let acertos = valoresCorretos.every(valor => resposta.includes(valor));
+            if (acertos) {
+                document.getElementById('pergunta7').classList.add('oculto');
+                document.getElementById('pontuacaoFinal').classList.remove('oculto');
+                document.getElementById('pontuacaoFinal').innerText = "Parabéns! Sua pontuação final foi: " + pontuacao;
+            } else {
+                pontuacao -= 10;
+                alert("Resposta incorreta! Tente novamente.");
+            }
+        }
+    </script>
+</body>
+</html>
